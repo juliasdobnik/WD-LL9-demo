@@ -155,10 +155,10 @@ function updateVoteChart() {
   });
 }
 
-// Show saved vote counts and percentages if any votes exist
+// Show saved vote counts and percentages only if the user has voted in this session
 function showSavedVotesIfAny() {
-  const totalVotes = votes.reduce((a, b) => a + b, 0);
-  if (totalVotes > 0) {
+  // Only show counts/percentages if the user has voted in this session
+  if (hasVoted) {
     voteSongs.forEach((song, i) => {
       document.getElementById(`count-${i}`).style.display = "inline";
       document.getElementById(`percent-${i}`).style.display = "inline";
